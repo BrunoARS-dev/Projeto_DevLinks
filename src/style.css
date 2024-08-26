@@ -31,6 +31,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
 }
 
 body *{
@@ -78,11 +79,16 @@ header{
     transform: translateY(-50%);
     left: 0;
     z-index: 1;
+    animation: slide-out 0.4s;  
 }
 
+#tema button:hover{
+    outline: 8px solid var(--highlight-color);
+}
+
+
 .light #tema button{
-    right: 0;
-    left: initial;
+    animation: slide-in 0.4s forwards;
 }
 
 #tema span{
@@ -99,6 +105,7 @@ header{
 /*Links*/
 main{
     width: 100%;
+    max-width: 588px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -175,7 +182,7 @@ footer{
     font-size: 14px;
 }
 
-@media (min-width: 992px)  {
+@media (min-width: 700px)  {
     header{
         margin: 5% 5% 2% 5%;
     }
@@ -188,3 +195,21 @@ footer{
     }
     
   }
+
+  /*Animation*/
+
+  @keyframes slide-in{
+        from {
+            left: 0;
+        } to {
+            left: 50%;
+        }
+  }
+
+  @keyframes slide-out{
+    from {
+        left: 50%;
+    } to {
+        left: 0;
+    }
+}
